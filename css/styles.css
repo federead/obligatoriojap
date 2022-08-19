@@ -9,6 +9,10 @@
   font-weight: bold;
 }
 
+.loginSize {
+  max-width: 550px;
+}
+
 nav a {
   text-decoration: none;
 }
