@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 let productArray = [];
 let catID = localStorage.getItem("catID");
 
@@ -41,4 +39,3 @@ async function cargarDatos(url) {   //Declaro la funcion para traer los datos
     }
 };
 cargarDatos(PRODUCTS_URL + catID +".json");    //llamo a la función para cargar los datos
->>>>>>> Stashed changes
