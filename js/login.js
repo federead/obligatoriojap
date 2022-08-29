@@ -4,7 +4,8 @@ const singInBtn = document.getElementById("sing-in-btn");
 
 function checkLogIn() {
     if (userLogin.value.trim().length > 0 && passwordLogin.value.trim().length > 0){
-        window.location = "index.html";
+        sessionStorage.setItem("userName", userLogin.value);
+        window.location = "index.html";        
     } else {
         alert ("Los campos no pueden estar vacios");
     }
