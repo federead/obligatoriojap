@@ -39,3 +39,7 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+//UserName en la barra superior
+let userName = document.getElementById("userName");
+userName.innerHTML = sessionStorage.getItem("userName");

@@ -9,6 +9,12 @@
   font-weight: bold;
 }
 
+.userNameStyle {
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+}
+
 .loginSize {
   max-width: 450px;
 }

@@ -22,14 +22,13 @@
 <body>
   <main class="mt-5">
     <div class="container loginSize">
-      <div class="text-center">
-        <form>
+      <div class="text-center">        
           <div class="form-floating">
             <img class="mb-4" src="img/login.png" alt="form-floating" style="width: 100%;">
             <h1 class="h3 mb-3 fw-normal">Inicie sesion</h1>
           </div>
           <div class="form-floating">
-            <input type="email" class="form-control" id="user-login" placeholder="Nombre de usuario">
+            <input type="text" class="form-control" id="user-login" placeholder="Nombre de usuario">
             <label>Nombre de usuario</label>
           </div>
           <div class="form-floating">
@@ -37,10 +36,9 @@
             <label>Contraseña</label>
           </div> <br>
 
-          <div class="g-signin2" data-onsuccess="onSignIn"></div> <!-- Google LogIn btn-->
-
-          <button class="w-100 btn btn-lg btn-primary" type="submit" id="sing-in-btn">Ingresar</button>
-        </form>
+          <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>  Google LogIn btn-->
+          
+          <button class="w-100 btn btn-lg btn-primary" id="sing-in-btn">Ingresar</button>        
       </div>
     </div>
   </main>
