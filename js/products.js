@@ -24,7 +24,7 @@ function showProductList() {
             `
         document.getElementById("list-product-container").innerHTML = htmlContentToAppend;        
     }
-    document.getElementById("title-of-category").innerHTML = productArray.catName; //muestra el titulo de la categoria actual
+    document.getElementById("title-of-category").innerHTML += productArray.catName; //Añade el titulo de la categoria actual
 }
 
 
