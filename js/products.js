@@ -37,7 +37,6 @@ function sortCategories(criteria, array){
 }
 
 function showProductList() {
-
     let htmlContentToAppend = "";
     for (let i = 0; i < productArray.products.length; i++) {
         let products = productArray.products[i];
@@ -49,7 +48,7 @@ function showProductList() {
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${products.name} - U$S ${products.cost}</h4>
+                            <h4 class="mb-1">${products.name} - ${products.currency} ${products.cost}</h4>
                             <small class="text-muted">${products.soldCount} vedidos</small>
                         </div>
                         <p class="mb-1">${products.description}</p>
