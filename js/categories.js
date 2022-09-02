@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_BY_PROD_COUNT);
+        sortAndShowCategories(ORDER_BY_PROD_COUNT);        
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
@@ -139,5 +139,5 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
         showCategoriesList();
-    });
+    });    
 });
