@@ -41,5 +41,4 @@ let getJSONData = function(url){
 }
 
 //UserName en la barra superior
-let userName = document.getElementById("userName");
-userName.innerHTML = sessionStorage.getItem("userName");
+let userName = document.getElementById("userName").innerHTML = sessionStorage.getItem("userName");
