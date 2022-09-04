@@ -35,9 +35,9 @@ function sortCategories(criteria, array) {
     return result;
 }
 
-function showAlertError() {
+/*function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
-}
+}*/
 
 function showProductList() {
     let htmlContentToAppend = "";
@@ -65,9 +65,9 @@ function showProductList() {
             `
             document.getElementById("list-product-container").innerHTML = htmlContentToAppend;
         }
-             else { 
+             /*else { 
                 showAlertError();            
-        } 
+        } */
     }
     document.getElementById("title-of-category").innerHTML = "Viendo la categoría: " + productArray.catName; //Añade el titulo de la categoria actual
 }
