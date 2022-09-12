@@ -19,6 +19,12 @@
   max-width: 450px;
 }
 
+.imgDesc {
+  max-width: 250px;
+  padding: 10px;
+  margin: 4px;
+}
+
 nav a {
   text-decoration: none;
 }

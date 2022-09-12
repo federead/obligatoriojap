@@ -39,6 +39,11 @@ function sortCategories(criteria, array) {
     document.getElementById("alert-danger").classList.add("show");
 }*/
 
+function setProdID(id){
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}
+
 function showProductList() {
     let htmlContentToAppend = "";
     for (let i = 0; i < productArray.products.length; i++) {
@@ -48,7 +53,7 @@ function showProductList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))) {
 
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${products.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
