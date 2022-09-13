@@ -25,6 +25,10 @@
   margin: 4px;
 }
 
+.marginLeft {
+  margin-left: 24px;
+}
+
 nav a {
   text-decoration: none;
 }
