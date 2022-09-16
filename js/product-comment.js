@@ -3,12 +3,12 @@ let comments = [];
 
 function loadComment() {
     let htmlContentToAppend = "";
-        
+      
     for (const comentarios of comments) {
         htmlContentToAppend = `        
         <div class="p-2 card">
             <div>
-                <p class="mb-1"><b>${comentarios.user}</b> - <small class="text-muted">${comentarios.dateTime}</small></p>                
+                <p class="mb-1"><b>${comentarios.user}</b> - <small class="text-muted">${comentarios.dateTime}</small></p>
                 <p class="mb-1">${comentarios.description}</p>  
             </div>              
         </div>        
