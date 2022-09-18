@@ -43,8 +43,24 @@
       <div class="container" id="container">  <!-- Contenedor de la info del producto -->
       </div>
       <div class="container">  <!-- Contenedor de los comentarios -->
-        <h2 class="marginLeft">Comentrios</h2>
+        <h2 class="marginLeft">Comentarios</h2>
         <div id="commentContainer" class="marginLeft">          
+        </div><hr class="marginLeft">
+      </div>
+      <div class="container">  <!-- Agregar comentario -->
+        <h2 class="marginLeft">Comentar</h2>
+        <div id="leaveComent" class="marginLeft">
+          <label for="comemntText">Escribe tu comentario:</label><br>
+          <textarea name="commentText" id="commentText" rows="3" cols="50"></textarea><br>
+          <label for="productRating">Calificación:</label><br>
+          <select name="productRating" class="form-select" style="max-width:65px;" id="productRating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>            
+          </select><br>
+          <button class="btn btn-primary btn-lg" id="addComment">Enviar</button>
         </div>
       </div>
     </div>
