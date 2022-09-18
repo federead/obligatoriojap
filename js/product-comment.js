@@ -64,8 +64,7 @@ async function cargarDatos(url) {
     let response = await fetch(url);
     if (response.ok) {
         comments = await response.json();
-        loadComment();
-        console.log(comments)
+        loadComment();        
     } else {
         alert("HTTP error: " + response.status);
     }

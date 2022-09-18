@@ -39,7 +39,7 @@ function sortCategories(criteria, array) {
     document.getElementById("alert-danger").classList.add("show");
 }*/
 
-function setProdID(id){
+function setProdID(id){ //"onclick" sobre el div del producto setea la ID del mismo 
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
