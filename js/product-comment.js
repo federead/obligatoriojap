@@ -26,7 +26,7 @@ function loadComment() {
                 <p class="mb-1">${comentarios.description}</p>  
             </div>              
         </div>        
-    `
+        `
         commentCont.innerHTML += htmlContentToAppend;
     }
 }
