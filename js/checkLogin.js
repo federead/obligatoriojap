@@ -1,3 +1,3 @@
-if (!sessionStorage.getItem("userName")) {
+if (!localStorage.getItem("userName")) {
     window.location = "login.html";
   }

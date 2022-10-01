@@ -32,7 +32,16 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item userNameStyle" id="userName">
+          <li class="nav-item"> <!-- Nombre de usuario -->   
+            <div class="dropdown">
+              <button class="userNameStyle dropdown-toggle" type="button" id="userName" data-bs-toggle="dropdown" aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><button class="dropdown-item" id="logOut">Cerrar sesión</button></li>
+              </ul>
+            </div>         
           </li>
         </ul>
       </div>
@@ -65,7 +74,7 @@
       </div>
       <div class="container"> <!-- Productos relacionados -->   
         <h2 class="marginLeft">Productos relacionados</h2>
-        <div id="carouselProducts" class="carousel slide marginLeft" data-bs-ride="carousel">
+        <div id="carouselProducts" class="carousel slide loginSize marginLeft" data-bs-ride="carousel">
           <div id="relatedProducts" class="carousel-inner">
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducts" data-bs-slide="prev">

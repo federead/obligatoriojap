@@ -13,11 +13,13 @@
   color: white;
   font-weight: bold;
   padding: 8px;
+  background-color: transparent;
+  border: none;  
 }
 
 .loginSize {
   max-width: 450px;
-}
+}   
 
 .imgDesc {
   max-width: 250px;

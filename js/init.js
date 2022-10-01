@@ -6,6 +6,7 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/prod
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
+const btnLogOut = document.getElementById("logOut");
 
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -41,4 +42,9 @@ let getJSONData = function(url){
 }
 
 //UserName en la barra superior
-let userName = document.getElementById("userName").innerHTML = sessionStorage.getItem("userName");
+let userName = document.getElementById("userName").innerHTML = localStorage.getItem("userName");
+
+btnLogOut.addEventListener("click", () => {
+  localStorage.removeItem("userName");
+  window.location="login.html";
+});

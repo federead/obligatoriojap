@@ -3,6 +3,11 @@ const relatedProducts = document.getElementById("relatedProducts");
 let productInfo = [];
 let productID = localStorage.getItem("prodID");
 
+function setProdID(id){ 
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+}
+
 function showProductInfo() {
     let htmlContentToAppend = "";
     let htmlRelatedProducts = "";
@@ -35,15 +40,17 @@ function showProductInfo() {
     //Para el carousel agrego el primer producto relacionado de forma "manual" por la class="active" que tiene que estar solo en el ptimer producto
     if (relProd[0].image) {
         htmlRelatedProducts = `
-        <div class="carousel-item active">
+        <div class="carousel-item active cursor-active" onclick="setProdID(${relProd[0].id})">
             <img src="${relProd[0].image}" class="d-block w-100" alt="${relProd[0].name}">
+            <p class="text-center h4">${relProd[0].name}</p>
         </div>`
         relatedProducts.innerHTML += htmlRelatedProducts;
 
         for (let i = 1; i < relProd.length; i++) {
             htmlRelatedProducts = `
-            <div class="carousel-item">
-                <img src="${relProd[i].image}" class="d-block w-100" alt="${relProd[1].name}">
+            <div class="carousel-item cursor-active" onclick="setProdID(${relProd[i].id})">
+                <img src="${relProd[i].image}" class="d-block w-100" alt="${relProd[i].name}">
+                <p class="text-center h4">${relProd[i].name}</p>
             </div>`
             relatedProducts.innerHTML += htmlRelatedProducts;
         }
