@@ -2,7 +2,8 @@ let cartInfo = [];
 const cartTable = document.getElementById("cartProductsInfo");
 
 function precio(unidad, costUnitario){
-    document.getElementById("subtotal").innerHTML = unidad*costUnitario;
+    let resultado = unidad*costUnitario;        
+    document.getElementById("subtotal").innerHTML = resultado;
 }
 
 function loadCartContent() {
@@ -16,8 +17,8 @@ function loadCartContent() {
             <td><img src="${cart.image}" style="width:75%;" alt="${cart.name}"></td>
             <td>${cart.name}</td>
             <td>${cart.currency} ${cart.unitCost}</td>
-            <td><input id="cantProduct${i}" oninput="precio(${this.value},${cart.unitCost})"></td>
-            <td id="subtotal"></td>
+            <td><input id="cantProduct${i}" oninput="precio(this.value,${cart.unitCost})"></td>
+            <td>${cart.currency}<p id="subtotal"></p></td>
             <td></td>
         </tr>`
         cartTable.innerHTML += htmlContentToAppend;        
