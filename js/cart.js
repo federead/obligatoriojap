@@ -13,12 +13,12 @@ function loadCartContent() {
 
         let cart = cartInfo.articles[i];
         htmlContentToAppend = `
-        <tr align="center">
+        <tr class="bordeBottom" align="center">
             <td><img src="${cart.image}" style="width:75%;" alt="${cart.name}"></td>
             <td>${cart.name}</td>
             <td>${cart.currency} ${cart.unitCost}</td>
-            <td><input id="cantProduct${i}" oninput="precio(this.value,${cart.unitCost})"></td>
-            <td>${cart.currency}<p id="subtotal"></p></td>
+            <td><input id="cantProduct${i}" style="width:50px;" oninput="precio(this.value,${cart.unitCost})"></td>
+            <td>${cart.currency} <span id="subtotal"></span></td>
             <td></td>
         </tr>`
         cartTable.innerHTML += htmlContentToAppend;        
