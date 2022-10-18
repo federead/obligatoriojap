@@ -32,16 +32,18 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item"> <!-- Nombre de usuario -->   
+          <li class="nav-item">
+            <!-- Nombre de usuario -->
             <div class="dropdown">
-              <button class="userNameStyle dropdown-toggle" type="button" id="userName" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="userNameStyle dropdown-toggle" type="button" id="userName" data-bs-toggle="dropdown"
+                aria-expanded="false">
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
                 <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
                 <li><button class="dropdown-item" id="logOut">Cerrar sesión</button></li>
               </ul>
-            </div>         
+            </div>
           </li>
         </ul>
       </div>
@@ -49,14 +51,31 @@
   </nav>
   <main>
     <div>
-      <div class="container" id="container">  <!-- Contenedor de la info del producto -->
+      <div class="container">
+        <!-- Contenedor de la info del producto -->
+        <div class="p-4">
+          <div class="row justify-content-between">
+            <h2 class="col-4" id="productName"></h2>
+            <button class="btn btn-success marginBtnComprar">Comprar</button>
+          </div>
+          <hr>
+          <p id="productDetails">
+          </p>
+          <div id="contImg">
+          </div>
+          <hr>
+        </div>
+
       </div>
-      <div class="container">  <!-- Contenedor de los comentarios -->
+      <div class="container">
+        <!-- Contenedor de los comentarios -->
         <h2 class="marginLeft">Comentarios</h2>
-        <div id="commentContainer" class="marginLeft">          
-        </div><hr class="marginLeft">
+        <div id="commentContainer" class="marginLeft">
+        </div>
+        <hr class="marginLeft">
       </div>
-      <div class="container">  <!-- Agregar comentario -->
+      <div class="container">
+        <!-- Agregar comentario -->
         <h2 class="marginLeft">Comentar</h2>
         <div class="marginLeft">
           <label for="comemntText">Escribe tu comentario:</label><br>
@@ -67,12 +86,14 @@
             <option>2</option>
             <option>3</option>
             <option>4</option>
-            <option>5</option>            
+            <option>5</option>
           </select><br>
-          <button class="btn btn-primary btn-lg" id="addComment">Enviar</button><hr>
+          <button class="btn btn-primary btn-lg" id="addComment">Enviar</button>
+          <hr>
         </div>
       </div>
-      <div class="container"> <!-- Productos relacionados -->   
+      <div class="container">
+        <!-- Productos relacionados -->
         <h2 class="marginLeft">Productos relacionados</h2>
         <div id="carouselProducts" class="carousel slide loginSize marginLeft" data-bs-ride="carousel">
           <div id="relatedProducts" class="carousel-inner">
@@ -85,7 +106,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div>     
+        </div>
       </div>
     </div>
   </main>

@@ -1,9 +1,10 @@
-const container = document.getElementById("container");
+const productDetails = document.getElementById("productDetails");
 const relatedProducts = document.getElementById("relatedProducts");
+const productName = document.getElementById("productName");
 let productInfo = [];
 let productID = localStorage.getItem("prodID");
 
-function setProdID(id){ 
+function setProdID(id) {
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
 }
@@ -12,28 +13,23 @@ function showProductInfo() {
     let htmlContentToAppend = "";
     let htmlRelatedProducts = "";
     let relProd = productInfo.relatedProducts;
+    
+    productName.innerHTML = productInfo.name;
 
-    htmlContentToAppend += `
-        <div class="p-4">
-            <h2> ${productInfo.name} </h2>
-            <hr>            
-            <p>
-                <b>Precio </b><br>
-                ${productInfo.currency} ${productInfo.cost} <br><br>
-                <b>Descripción </b><br>
-                ${productInfo.description} <br><br>
-                <b>Categoria </b><br>
-                ${productInfo.category} <br><br>
-                <b>Cantidad vendidos </b><br>
-                ${productInfo.soldCount} <br><br>
-                <b>Imágenes ilustrativas </b><br>
-            </p>
-            <div id="contImg">            
-            </div><hr>
-        </div>        
+    htmlContentToAppend += `       
+        <b>Precio </b><br>
+        ${productInfo.currency} ${productInfo.cost} <br><br>
+        <b>Descripción </b><br>
+        ${productInfo.description} <br><br>
+        <b>Categoria </b><br>
+        ${productInfo.category} <br><br>
+        <b>Cantidad vendidos </b><br>
+        ${productInfo.soldCount} <br><br>
+        <b>Imágenes ilustrativas </b><br>
     `
-    container.innerHTML += htmlContentToAppend;
-    for (const imgs of productInfo.images) {    //Agrega imagenes al div
+    productDetails.innerHTML += htmlContentToAppend;
+
+    for (const imgs of productInfo.images) {    //Agrega imagenes del producto al div
         document.getElementById("contImg").innerHTML += `<img src="${imgs}" alt="${productInfo.name}" class="imgDesc border"></img>`;
     }
 
