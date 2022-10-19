@@ -1,6 +1,7 @@
 const productDetails = document.getElementById("productDetails");
 const relatedProducts = document.getElementById("relatedProducts");
 const productName = document.getElementById("productName");
+const buyBtn = document.getElementById("buyProduct");
 let productInfo = [];
 let productID = localStorage.getItem("prodID");
 
@@ -13,7 +14,7 @@ function showProductInfo() {
     let htmlContentToAppend = "";
     let htmlRelatedProducts = "";
     let relProd = productInfo.relatedProducts;
-    
+
     productName.innerHTML = productInfo.name;
 
     htmlContentToAppend += `       
@@ -52,6 +53,22 @@ function showProductInfo() {
         }
     }
 }
+
+//Agregar producto al local storage para el carrito
+buyBtn.addEventListener("click", function () {
+    jsonStringData = "";
+    if (!localStorage.getItem("productCart")) {
+        let jsonStringData = JSON.stringify(productInfo);
+        localStorage.setItem("productCart", jsonStringData);
+    } else {
+        let jsonCart = localStorage.getItem("productCart"); 
+        let jsonDataToAdd = JSON.stringify(productInfo);
+        jsonCart.push(jsonDataToAdd);
+        //localStorage.setItem("productCart", jsonCart);
+        console.log(jsonCart, jsonDataToAdd);
+    }   
+}
+)
 
 async function cargarDatos(url) {
     let response = await fetch(url);
