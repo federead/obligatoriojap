@@ -54,18 +54,35 @@ function showProductInfo() {
     }
 }
 
+
 //Agregar producto al local storage para el carrito
+
 buyBtn.addEventListener("click", function () {
     jsonStringData = "";
     if (!localStorage.getItem("productCart")) {
-        let jsonStringData = JSON.stringify(productInfo);
-        localStorage.setItem("productCart", jsonStringData);
+        let jsonData = [];
+        jsonData.push({
+            id: productInfo.id,
+            name: productInfo.name,
+            count: productInfo.count,
+            unitCost: productInfo.unitCost,
+            currency: productInfo.currency,
+            image: productInfo.image
+          });
+        console.log(jsonData);
+        localStorage.setItem("productCart", JSON.stringify(jsonData));
     } else {
-        let jsonCart = localStorage.getItem("productCart"); 
-        let jsonDataToAdd = JSON.stringify(productInfo);
-        jsonCart.push(jsonDataToAdd);
-        //localStorage.setItem("productCart", jsonCart);
-        console.log(jsonCart, jsonDataToAdd);
+        let cartArray = JSON.parse(localStorage.getItem("productCart"));
+        cartArray.push({
+            id: productInfo.id,
+            name: productInfo.name,
+            count: productInfo.count,
+            unitCost: productInfo.unitCost,
+            currency: productInfo.currency,
+            image: productInfo.image
+          });
+        console.log(cartArray);
+        localStorage.setItem("productCart", JSON.stringify(cartArray));
     }   
 }
 )
