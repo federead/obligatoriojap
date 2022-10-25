@@ -1,4 +1,3 @@
-let cartInfo = [];
 let cartInfoAPI = [];
 const cartTable = document.getElementById("cartProductsInfo");
 
@@ -13,8 +12,43 @@ function precio(unidad, costUnitario, i){
     }
 }
 
-// -- CARGANDO LOS DATOS DEL CART DESDE LA API --
+function existOnCart(id){
+    let cartArray = JSON.parse(localStorage.getItem("productCart"));  
+    return cartArray.includes(id);
+}
+
+// Cargando los datos de la API en el Local Storage
 function loadCartContentFromAPI(){
+    console.log(cartInfoAPI.articles[0].id);
+    let cartArray = JSON.parse(localStorage.getItem("productCart"));  
+    console.log(cartArray);
+
+    if (!localStorage.getItem("productCart")) {
+        let jsonData = [];
+        jsonData.push({
+            id: cartInfoAPI.articles[0].id,
+            name: cartInfoAPI.articles[0].name,            
+            unitCost: cartInfoAPI.articles[0].unitCost,
+            currency: cartInfoAPI.articles[0].currency,
+            image: cartInfoAPI.articles[0].image
+          });        
+        localStorage.setItem("productCart", JSON.stringify(jsonData));
+    }
+        else if(existOnCart(cartInfoAPI.articles[0].id)){ 
+        console.log("ya esta en el coso");
+        
+        /*let cartArray = JSON.parse(localStorage.getItem("productCart"));        
+
+        cartArray.push({
+            id: productInfo.id,
+            name: productInfo.name,            
+            unitCost: productInfo.unitCost,
+            currency: productInfo.currency,
+            image: productInfo.image
+          });
+        console.log(cartArray);
+        localStorage.setItem("productCart", JSON.stringify(cartArray));*/
+    }   
     
 }
 

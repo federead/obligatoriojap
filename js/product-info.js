@@ -57,17 +57,15 @@ function showProductInfo() {
 
 //Agregar producto al local storage para el carrito
 
-buyBtn.addEventListener("click", function () {
-    jsonStringData = "";
+buyBtn.addEventListener("click", function () {    
     if (!localStorage.getItem("productCart")) {
         let jsonData = [];
         jsonData.push({
             id: productInfo.id,
-            name: productInfo.name,
-            count: productInfo.count,
-            unitCost: productInfo.unitCost,
+            name: productInfo.name,            
+            unitCost: productInfo.cost,
             currency: productInfo.currency,
-            image: productInfo.image
+            image: productInfo.images[0]
           });
         console.log(jsonData);
         localStorage.setItem("productCart", JSON.stringify(jsonData));
@@ -75,11 +73,10 @@ buyBtn.addEventListener("click", function () {
         let cartArray = JSON.parse(localStorage.getItem("productCart"));
         cartArray.push({
             id: productInfo.id,
-            name: productInfo.name,
-            count: productInfo.count,
-            unitCost: productInfo.unitCost,
+            name: productInfo.name,            
+            unitCost: productInfo.cost,
             currency: productInfo.currency,
-            image: productInfo.image
+            image: productInfo.images[0]
           });
         console.log(cartArray);
         localStorage.setItem("productCart", JSON.stringify(cartArray));
