@@ -36,6 +36,10 @@
   width: 100px;
 }
 
+.invalidInput {
+  border-color: red;
+}
+
 .tableHeader {
   border-bottom: 1px solid black;  
 }
