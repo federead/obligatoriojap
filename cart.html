@@ -68,11 +68,11 @@
             <hr class="solidLine">
           </div>
           <br>
+
           <h5>Tipo de envío</h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="premiumEnvio" name="envioType" type="radio" class="custom-control-input" checked=""
-                required="">
+              <input id="premiumEnvio" name="envioType" type="radio" class="custom-control-input" checked="" required="">
               <label class="custom-control-label" for="premiumEnvio">Premium 2 a 5 días (15%)</label>
             </div>
             <div class="custom-control custom-radio">
@@ -84,7 +84,7 @@
               <label class="custom-control-label" for="standardEnvio">Standard 12 a 15 días (5%)</label>
             </div>
           </div>
-
+          
           <h5>Dirección de envío</h5>
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -102,6 +102,31 @@
               <input type="text" name="envioEsquina" class="form-control" id="envioEsquina" placeholder="" required="">
             </div>
           </div>
+
+          <hr class="mb-4">
+          <h5 class="mb-3">Costos</h5> 
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Precio</h6>
+                <small class="text-muted">Subtotal de todos los productos</small>
+              </div>
+              <span class="text-muted" id="costOfAllProducts">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Costo de envío</h6>
+                <small class="text-muted">Según el tipo de envío</small>
+              </div>
+              <span class="text-muted" id="costEnvio">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (U$S)</span>
+              <strong id="totalCost">-</strong>
+            </li>
+          </ul>
+          <hr class="mb-4">
+
         </div>
       </div>
   </main>
