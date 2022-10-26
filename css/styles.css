@@ -49,6 +49,11 @@ hr.solidLine {
   opacity: unset;
 }
 
+img.tdSize {
+  width: 75%;
+  padding: 3%;
+}
+
 tr.bordeBottom {
   border-bottom: 1px solid lightgray;
 }

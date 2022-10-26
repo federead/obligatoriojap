@@ -54,9 +54,17 @@ function showProductInfo() {
     }
 }
 
+// Función que comprueba si existe un determinado elemento en el carrito (Local Storage)
+function existOnCart(id) {
+    let cartArray = JSON.parse(localStorage.getItem("productCart"));
+    for (let i = 0; i < cartArray.length; i++) {
+        if (cartArray[i].id === id) {
+            return true;
+        }
+    }
+}
 
 //Agregar producto al local storage para el carrito
-
 buyBtn.addEventListener("click", function () {    
     if (!localStorage.getItem("productCart")) {
         let jsonData = [];
@@ -69,7 +77,11 @@ buyBtn.addEventListener("click", function () {
           });
         console.log(jsonData);
         localStorage.setItem("productCart", JSON.stringify(jsonData));
-    } else {
+    } 
+    else if (existOnCart(productInfo.id)){
+        console.log("Ya esta en el carreu mi negro")
+    }    
+    else {
         let cartArray = JSON.parse(localStorage.getItem("productCart"));
         cartArray.push({
             id: productInfo.id,
