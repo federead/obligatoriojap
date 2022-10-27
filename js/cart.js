@@ -2,20 +2,20 @@ const cartTable = document.getElementById("cartProductsInfo");
 const envioPremium15 = document.getElementById("premiumEnvio");
 const envioExpress7 = document.getElementById("expressEnvio");
 const envioStandard5 = document.getElementById("standardEnvio");
+const costOfAllProducts = document.getElementById("costOfAllProducts");
+const costEnvio = document.getElementById("costEnvio");
+const finalPrice = document.getElementById("finalPrice");
 
 // Función que comprueba la cantidad de articulos y devuelve el subtotal
 function precio(unidad, i) {
     let cartInfo = JSON.parse(localStorage.getItem("productCart"));
     let moneda = cartInfo[i].currency;
     let unitCost = cartInfo[i].unitCost;
-    
-    console.log("el tipo de moneda es: " + moneda, typeof moneda);
-    console.log((moneda === "UYU") ? unitCost/40 : unitCost, moneda);
 
     let costoEnUsd = (moneda === "UYU") ? unitCost/40 : unitCost;    
-    let resultado = unidad * costoEnUsd;     
+    let resultado = (unidad * costoEnUsd).toFixed(2);
 
-    if (resultado < 0) {        
+    if (unidad<1) {        
         document.getElementById("cantProduct" + i).classList.add("invalidInput");
     } else {
         document.getElementById("cantProduct" + i).classList.remove("invalidInput");           
@@ -43,19 +43,36 @@ function loadCartContent() {
     }    
 }
 
-function calculateGeneralSubtotal() {
+function calculateCosts() {
+    
+    //Suma de todos los productos
     let cartInfo = JSON.parse(localStorage.getItem("productCart"));
-    let finalPrice = 0;
+    let sumaProducts = 0;
     for(let i=0; i<cartInfo.length; i++){
-        let subtotalProd = parseInt(document.getElementById("subtotal"+i).textContent);
-        finalPrice = finalPrice + subtotalProd;      
+        let subtotalProd = parseFloat(document.getElementById("subtotal"+i).textContent);
+        sumaProducts = sumaProducts + subtotalProd;      
+    }    
+    costOfAllProducts.innerHTML = "USD " + sumaProducts;
+
+    //Calcula costo de envio
+    let sendCost = 0;
+    if(envioPremium15.checked) {
+        sendCost = (sumaProducts*0.15);        
+    } else if (envioExpress7.checked) {
+        sendCost = (sumaProducts*0.07);
+    } else {        
+        sendCost = (sumaProducts*0.05);
     }
-    console.log("total de toda la compra: " + finalPrice);
-    return finalPrice;
+    costEnvio.innerHTML = "USD " + sendCost.toFixed(2);
+    
+    //Suma total
+    let total = sumaProducts + sendCost;    
+    finalPrice.innerHTML = "USD " + total.toFixed(2);
 }
 
+document.addEventListener("change", ()=> {
+    calculateCosts();    
+})
+
 loadCartContent();
-calculateGeneralSubtotal();
-/*envioPremium15.addEventListener("click", ()=> {
-    suma total x 15%
-});*/
+calculateCosts();
