@@ -135,14 +135,28 @@
             </button>
           </div>
 
-          <div class="modal fade" id="modalPayForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalPayForm" tabindex="-1" aria-labelledby="modalPayFormLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>                  
                 </div>
                 <div class="modal-body">
-                  ...
+                  <div>
+                    <input id="creditCardPay" name="envioType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="creditCardPay">Tarjeta de crédito</label>
+
+
+                  </div>
+                  <hr class="mb-4">
+
+                  <div>
+                    <input id="transferPay" name="envioType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
+                    <label for="accountNumber" class="mt-2">Número de cuenta</label>
+                    <input type="text" name="accountNumber" class="form-control" placeholder="" required="">                    
+                  </div>
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
