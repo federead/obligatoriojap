@@ -43,6 +43,19 @@ function loadCartContent() {
     }    
 }
 
+// Modifica el modal de "Forma de Pago" según lo seleccionado
+document.getElementById("modalPayForm").addEventListener("change", () => {
+    const creditCardPay = document.getElementById("creditCardPay");
+    const transferPay = document.getElementById("transferPay");
+    const msgPayForm = document.getElementById("msgPayForm");
+    
+    if (creditCardPay.checked) {
+        msgPayForm.innerHTML = "Tarjeta de crédito";
+    } else if (transferPay.checked) {
+        msgPayForm.innerHTML = "Transferencia bancaria";
+    }
+})
+
 function calculateCosts() {
     
     //Suma de todos los productos

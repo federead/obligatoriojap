@@ -134,7 +134,7 @@
               Seleccionar
             </button>
           </div>
-
+          
           <div class="modal fade" id="modalPayForm" tabindex="-1" aria-labelledby="modalPayFormLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -145,18 +145,30 @@
                   <div>
                     <input id="creditCardPay" name="envioType" type="radio" class="custom-control-input" required="">
                     <label class="custom-control-label" for="creditCardPay">Tarjeta de crédito</label>
-
-
+                    <div class="row mt-2">
+                      <div class="col-md-5">
+                        <label for="cardNumber">Número de tarjeta</label>
+                        <input type="number" name="cardNumber" class="form-control" placeholder="" required="">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="secCode">Codigo de seg.</label>
+                        <input type="number" name="secCode" class="form-control" placeholder="" required="">
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-md-5">
+                        <label for="expirationDate">Vencimiento (MM/AA)</label>
+                        <input type="number" name="expirationDate" class="form-control" placeholder="" required="">
+                      </div>
+                    </div>
                   </div>
                   <hr class="mb-4">
-
                   <div>
                     <input id="transferPay" name="envioType" type="radio" class="custom-control-input" required="">
                     <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
                     <label for="accountNumber" class="mt-2">Número de cuenta</label>
                     <input type="text" name="accountNumber" class="form-control" placeholder="" required="">                    
-                  </div>
-                  
+                  </div>                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
