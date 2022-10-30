@@ -77,9 +77,10 @@ buyBtn.addEventListener("click", function () {
           });
         console.log(jsonData);
         localStorage.setItem("productCart", JSON.stringify(jsonData));
+        document.getElementById("productAddedToCart").hidden = false;
     } 
     else if (existOnCart(productInfo.id)){
-        console.log("Ya esta en el carreu mi negro")
+        document.getElementById("productInCartAlert").hidden = false;
     }    
     else {
         let cartArray = JSON.parse(localStorage.getItem("productCart"));
@@ -92,6 +93,7 @@ buyBtn.addEventListener("click", function () {
           });
         console.log(cartArray);
         localStorage.setItem("productCart", JSON.stringify(cartArray));
+        document.getElementById("productAddedToCart").hidden = false;
     }   
 }
 )

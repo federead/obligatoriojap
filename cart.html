@@ -48,136 +48,162 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <br>
-      <h2 class="text-center">Carrito de compras</h2><br>
-      <div class="justify-content-md-center row">
-        <div class="col-md-8 order-md-1">
-          <h5>Articulos a comprar</h5>
-          <div>
-            <table id="cartProductsInfo">
-              <tr class="tableHeader" align="center">
-                <th></th>
-                <th>Nombre</th>
-                <th>Costo</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-                <th></th>
-              </tr>
-            </table>
-            <hr class="solidLine">
-          </div>
-          <br>
-
-          <h5>Tipo de envío</h5>
-          <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-              <input id="premiumEnvio" name="envioType" type="radio" class="custom-control-input" required="">
+    <form class="needs-validation" novalidate>
+      <div class="container">
+        <br>
+        <h2 class="text-center">Carrito de compras</h2><br>
+        <div class="justify-content-md-center row">
+          <div class="col-md-8 order-md-1">
+            <h5>Articulos a comprar</h5>
+            <div>
+              <table id="cartProductsInfo">
+                <tr class="tableHeader" align="center">
+                  <th></th>
+                  <th>Nombre</th>
+                  <th>Costo</th>
+                  <th>Cantidad</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                </tr>
+              </table>
+              <hr class="solidLine">
+            </div>
+            <br>
+            <h5>Tipo de envío</h5>
+            <div class="d-block my-3">
+              <input id="premiumEnvio" name="envioType" type="radio" class="form-check-input" required="">
               <label class="custom-control-label" for="premiumEnvio">Premium 2 a 5 días (15%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="expressEnvio" name="envioType" type="radio" class="custom-control-input" required="">
+              <br>
+              <input id="expressEnvio" name="envioType" type="radio" class="form-check-input" required="">
               <label class="custom-control-label" for="expressEnvio">Express 5 a 8 días (7%)</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="standardEnvio" name="envioType" type="radio" class="custom-control-input" required="">
+              <br>
+              <input id="standardEnvio" name="envioType" type="radio" class="form-check-input" required="">
               <label class="custom-control-label" for="standardEnvio">Standard 12 a 15 días (5%)</label>
-            </div>
-          </div>
-          
-          <h5>Dirección de envío</h5>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="envioCalle">Calle</label>
-              <input type="text" name="sendType" class="form-control" id="envioCalle" placeholder="" required="">
-            </div>
-            <div class="col-md-2 mb-3">
-              <label for="envioNro">Número</label>
-              <input type="number" name="sendType" class="form-control" id="envioNro" placeholder="" required="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="envioEsquina">Esquina</label>
-              <input type="text" name="sendType" class="form-control" id="envioEsquina" placeholder="" required="">
-            </div>
-          </div>
-
-          <hr class="mb-4">
-          <h5 class="mb-3">Costos</h5> 
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Precio</h6>
-                <small class="text-muted">Subtotal de todos los productos</small>
+              <div class="invalid-feedback w-auto">
+                Debe seleccionar un tipo de envío
               </div>
-              <span class="text-muted" id="costOfAllProducts">-</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Costo de envío</h6>
-                <small class="text-muted">Según el tipo de envío</small>
-              </div>
-              <span class="text-muted" id="costEnvio">-</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (U$S)</span>
-              <strong id="finalPrice">-</strong>
-            </li>
-          </ul>
-          <hr class="mb-4">
+            </div>
 
-          <h5 class="mb-3">Forma de pago</h5> 
-          <div class="row">
-            <p class="col-md-auto my-auto" id="msgPayForm">No seleccionado aún</p>
-            <button type="button" id="PayFormButton" class="btn btn-link col-md-auto" data-bs-toggle="modal" data-bs-target="#modalPayForm">
-              Seleccionar
-            </button>
-          </div>
-          
-          <div class="modal fade" id="modalPayForm" tabindex="-1" aria-labelledby="modalPayFormLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>                  
+            <h5>Dirección de envío</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="envioCalle">Calle</label>
+                <input type="text" name="sendType" class="form-control" id="envioCalle" placeholder="" required="">
+                <div class="invalid-feedback w-auto">
+                  Ingrese una calle
                 </div>
-                <div class="modal-body">
-                  <div>
-                    <input id="creditCardPay" name="wayToPay" type="radio" class="custom-control-input" required="">
-                    <label class="custom-control-label" for="creditCardPay">Tarjeta de crédito</label>
-                    <div class="row mt-2">
-                      <div class="col-md-5">
-                        <label for="cardNumber">Número de tarjeta</label>
-                        <input type="number" id="cardNumber" class="form-control" placeholder="" required="">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="envioNro">Número</label>
+                <input type="number" name="sendType" class="form-control" id="envioNro" placeholder="" required="">
+                <div class="invalid-feedback w-auto">
+                  Ingrese un número
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="envioEsquina">Esquina</label>
+                <input type="text" name="sendType" class="form-control" id="envioEsquina" placeholder="" required="">
+                <div class="invalid-feedback w-auto">
+                  Ingrese una esquina
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+
+            <h5 class="mb-3">Costos</h5>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Precio</h6>
+                  <small class="text-muted">Subtotal de todos los productos</small>
+                </div>
+                <span class="text-muted" id="costOfAllProducts">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Costo de envío</h6>
+                  <small class="text-muted">Según el tipo de envío</small>
+                </div>
+                <span class="text-muted" id="costEnvio">-</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (U$S)</span>
+                <strong id="finalPrice">-</strong>
+              </li>
+            </ul>
+            <hr class="mb-4">
+
+            <h5 class="mb-3">Forma de pago</h5>
+            <div class="row">
+              <p class="col-md-auto my-auto" id="msgPayForm">No seleccionado aún</p>
+              <button type="button" id="payFormButton" class="btn btn-link col-md-auto" data-bs-toggle="modal"
+                data-bs-target="#modalPayForm">
+                Seleccionar
+              </button>
+            </div>
+            <div class="modal fade" id="modalPayForm" tabindex="-1" aria-labelledby="modalPayFormLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <input id="creditCardPay" name="wayToPay" type="radio" class="form-check-input" required="">
+                      <label class="custom-control-label" for="creditCardPay">Tarjeta de crédito</label>
+                      <div class="row mt-2">
+                        <div class="col-md-5">
+                          <label for="cardNumber">Número de tarjeta</label>
+                          <input type="number" id="cardNumber" class="form-control" placeholder="" required="">
+                          <div class="invalid-feedback w-auto">
+                            Ingrese el número de la tarjeta
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="secCode">Codigo de seg.</label>
+                          <input type="number" id="secCode" class="form-control" placeholder="" required="">
+                          <div class="invalid-feedback w-auto">
+                            Ingrese el código de seguridad
+                          </div>
+                        </div>
                       </div>
-                      <div class="col-md-4">
-                        <label for="secCode">Codigo de seg.</label>
-                        <input type="number" id="secCode" class="form-control" placeholder="" required="">
+                      <div class="row mt-2">
+                        <div class="col-md-5">
+                          <label for="expirationDate">Vencimiento (MM/AA)</label>
+                          <input type="number" id="expirationDate" class="form-control" placeholder="" required="">
+                          <div class="invalid-feedback w-auto">
+                            Ingrese el vencimiento
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="row mt-2">
-                      <div class="col-md-5">
-                        <label for="expirationDate">Vencimiento (MM/AA)</label>
-                        <input type="number" id="expirationDate" class="form-control" placeholder="" required="">
+                    <hr class="mb-4">
+                    <div>
+                      <input id="transferPay" name="wayToPay" type="radio" class="form-check-input" required="">
+                      <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
+                      <label for="accountNumber" class="mt-2">Número de cuenta</label>
+                      <input type="text" name="accountNumber" id="accountNumber" class="form-control" placeholder="" required="">
+                      <div class="invalid-feedback w-auto">
+                        Ingrese un número de cuenta
                       </div>
                     </div>
                   </div>
-                  <hr class="mb-4">
-                  <div>
-                    <input id="transferPay" name="wayToPay" type="radio" class="custom-control-input" required="">
-                    <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
-                    <label for="accountNumber" class="mt-2">Número de cuenta</label>
-                    <input type="text" name="accountNumber" id="accountNumber" class="form-control" placeholder="" required="">                    
-                  </div>                  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
                 </div>
               </div>
             </div>
+            <hr class="mb-4">
+            <div class="text-center">
+              <button class="btn btn-success col-md-4" type="submit"><strong>Finalizar compra!</strong></button>
+            </div>
           </div>
         </div>
-      </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
