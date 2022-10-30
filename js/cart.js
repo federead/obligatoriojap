@@ -43,21 +43,33 @@ function loadCartContent() {
     }    
 }
 
-// Modifica el modal de "Forma de Pago" según lo seleccionado
+// Modal "Forma de Pago"
 document.getElementById("modalPayForm").addEventListener("change", () => {
     const creditCardPay = document.getElementById("creditCardPay");
     const transferPay = document.getElementById("transferPay");
     const msgPayForm = document.getElementById("msgPayForm");
+    const accountNumber = document.getElementById("accountNumber");
+    const cardNumber = document.getElementById("cardNumber");
+    const secCode = document.getElementById("secCode");
+    const expirationDate = document.getElementById("expirationDate");
     
     if (creditCardPay.checked) {
         msgPayForm.innerHTML = "Tarjeta de crédito";
+        accountNumber.disabled = true;
+        cardNumber.disabled = false;
+        secCode.disabled = false;
+        expirationDate.disabled = false;
     } else if (transferPay.checked) {
         msgPayForm.innerHTML = "Transferencia bancaria";
+        accountNumber.disabled = false;
+        cardNumber.disabled = true;
+        secCode.disabled = true;
+        expirationDate.disabled = true;        
     }
 })
 
 function calculateCosts() {
-    
+
     //Suma de todos los productos
     let cartInfo = JSON.parse(localStorage.getItem("productCart"));
     let sumaProducts = 0;

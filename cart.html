@@ -72,7 +72,7 @@
           <h5>Tipo de envío</h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="premiumEnvio" name="envioType" type="radio" class="custom-control-input" checked="" required="">
+              <input id="premiumEnvio" name="envioType" type="radio" class="custom-control-input" required="">
               <label class="custom-control-label" for="premiumEnvio">Premium 2 a 5 días (15%)</label>
             </div>
             <div class="custom-control custom-radio">
@@ -89,17 +89,17 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="envioCalle">Calle</label>
-              <input type="text" name="envioCalle" class="form-control" id="envioCalle" placeholder="" required="">
+              <input type="text" name="sendType" class="form-control" id="envioCalle" placeholder="" required="">
             </div>
             <div class="col-md-2 mb-3">
-              <label for="envioCalle">Número</label>
-              <input type="number" name="envioNro" class="form-control" id="envioNro" placeholder="" required="">
+              <label for="envioNro">Número</label>
+              <input type="number" name="sendType" class="form-control" id="envioNro" placeholder="" required="">
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="envioEsquina">Esquina</label>
-              <input type="text" name="envioEsquina" class="form-control" id="envioEsquina" placeholder="" required="">
+              <input type="text" name="sendType" class="form-control" id="envioEsquina" placeholder="" required="">
             </div>
           </div>
 
@@ -129,7 +129,7 @@
 
           <h5 class="mb-3">Forma de pago</h5> 
           <div class="row">
-            <p class="col-md-auto my-auto" id="msgPayForm">No selleccionado aún</p>
+            <p class="col-md-auto my-auto" id="msgPayForm">No seleccionado aún</p>
             <button type="button" id="PayFormButton" class="btn btn-link col-md-auto" data-bs-toggle="modal" data-bs-target="#modalPayForm">
               Seleccionar
             </button>
@@ -143,42 +143,39 @@
                 </div>
                 <div class="modal-body">
                   <div>
-                    <input id="creditCardPay" name="envioType" type="radio" class="custom-control-input" required="">
+                    <input id="creditCardPay" name="wayToPay" type="radio" class="custom-control-input" required="">
                     <label class="custom-control-label" for="creditCardPay">Tarjeta de crédito</label>
                     <div class="row mt-2">
                       <div class="col-md-5">
                         <label for="cardNumber">Número de tarjeta</label>
-                        <input type="number" name="cardNumber" class="form-control" placeholder="" required="">
+                        <input type="number" id="cardNumber" class="form-control" placeholder="" required="">
                       </div>
                       <div class="col-md-4">
                         <label for="secCode">Codigo de seg.</label>
-                        <input type="number" name="secCode" class="form-control" placeholder="" required="">
+                        <input type="number" id="secCode" class="form-control" placeholder="" required="">
                       </div>
                     </div>
                     <div class="row mt-2">
                       <div class="col-md-5">
                         <label for="expirationDate">Vencimiento (MM/AA)</label>
-                        <input type="number" name="expirationDate" class="form-control" placeholder="" required="">
+                        <input type="number" id="expirationDate" class="form-control" placeholder="" required="">
                       </div>
                     </div>
                   </div>
                   <hr class="mb-4">
                   <div>
-                    <input id="transferPay" name="envioType" type="radio" class="custom-control-input" required="">
+                    <input id="transferPay" name="wayToPay" type="radio" class="custom-control-input" required="">
                     <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
                     <label for="accountNumber" class="mt-2">Número de cuenta</label>
-                    <input type="text" name="accountNumber" class="form-control" placeholder="" required="">                    
+                    <input type="text" name="accountNumber" id="accountNumber" class="form-control" placeholder="" required="">                    
                   </div>                  
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>                  
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
   </main>
