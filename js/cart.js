@@ -19,12 +19,8 @@ function precio(unidad, i) {
     let resultado = (unidad * costoEnUsd).toFixed(2);
 
     if (unidad < 1) {
-        //document.getElementById("cantProduct" + i).classList.add("invalidInput");
-        //document.getElementById("productMsgInvalid").hidden = false;
         document.getElementById("subtotal" + i).innerHTML = 0;
     } else {
-        //document.getElementById("cantProduct" + i).classList.remove("invalidInput");
-        //document.getElementById("productMsgInvalid").hidden = true;
         document.getElementById("subtotal" + i).innerHTML = resultado;
     }
 }
@@ -55,7 +51,7 @@ function loadCartContent() {
 }
 
 // Modal "Forma de Pago"
-document.getElementById("modalPayForm").addEventListener("change", () => {   
+document.getElementById("modalPayForm").addEventListener("change", () => {
     const accountNumber = document.getElementById("accountNumber");
     const cardNumber = document.getElementById("cardNumber");
     const secCode = document.getElementById("secCode");
@@ -79,7 +75,7 @@ document.getElementById("modalPayForm").addEventListener("change", () => {
 
 function payFromSelected() {
     if (creditCardPay.checked || transferPay.checked) {
-        msgPayForm.classList.remove("text-danger");        
+        msgPayForm.classList.remove("text-danger");
     } else {
         msgPayForm.classList.add("text-danger");
         msgPayForm.innerHTML = "Selleccione una forma de pago";
@@ -131,7 +127,6 @@ calculateCosts();
                     event.preventDefault()
                     event.stopPropagation()
                 }
-
                 form.classList.add('was-validated')
             }, false)
         })
