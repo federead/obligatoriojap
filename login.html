@@ -8,11 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <!--Google LogIn
-  <script src="https://apis.google.com/js/platform.js" async defer></script> 
-  <meta name="google-signin-client_id" content="691623102904-3pbp6vkst6muk6gn1a8vc0s1faufh27n.apps.googleusercontent.com"> 
-  -->
-<style>
+  <style>
     body {
       background-color: rgb(248, 249, 250);
     }
@@ -22,23 +18,29 @@
 <body>
   <main class="mt-5">
     <div class="container loginSize">
-      <div class="text-center">        
+      <div class="text-center">
+        <div class="form-floating">
+          <img class="mb-4" src="img/login.png" alt="form-floating" style="width: 100%;">
+          <h1 class="h3 mb-3 fw-normal">Inicie sesion</h1>
+        </div>
+        <form class="needs-validation" novalidate>
           <div class="form-floating">
-            <img class="mb-4" src="img/login.png" alt="form-floating" style="width: 100%;">
-            <h1 class="h3 mb-3 fw-normal">Inicie sesion</h1>
-          </div>
+            <input type="email" class="form-control" id="user-login" placeholder="Correo electrónico" required>
+            <label>Correo electrónico</label>
+            <div class="invalid-feedback w-auto">
+              Ingrese un correo electrónico
+            </div>
+          </div>          
           <div class="form-floating">
-            <input type="text" class="form-control" id="user-login" placeholder="Nombre de usuario">
-            <label>Nombre de usuario</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="password-login" placeholder="Contraseña">
+            <input type="password" class="form-control" id="password-login" placeholder="Contraseña" required>
             <label>Contraseña</label>
-          </div> <br>
-
-          <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>  Google LogIn btn-->
-          
-          <button class="w-100 btn btn-lg btn-primary" id="sing-in-btn">Ingresar</button>        
+            <div class="invalid-feedback w-auto">
+              Ingrese una contraseña
+            </div>
+          </div>          
+          <br>
+          <button type="submit" class="w-100 btn btn-lg btn-primary" id="sing-in-btn">Ingresar</button>
+        </form>
       </div>
     </div>
   </main>
