@@ -68,6 +68,9 @@
       <hr class="mb-4">
       <form class="needs-validation" novalidate>
         <div class="row mt-2">
+          <div id="successUser" class="alert alert-success w-auto" role="alert" hidden>
+            Los cambios fuerón guardados!
+          </div>
           <div class="col">
             <label for="profileName">Primer nombre*</label>
             <input type="text" name="profileForm" class="form-control" id="profileName" required>
@@ -102,7 +105,7 @@
             </div>
           </div>
           <div class="col">
-            <label for="profilePhone">Telefono*</label>
+            <label for="profilePhone">Telefono</label>
             <input type="tel" name="profileForm" class="form-control" id="profilePhone">            
           </div>
         </div>

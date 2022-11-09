@@ -115,6 +115,11 @@ document.addEventListener("change", () => {
 loadCartContent();
 calculateCosts();
 
+// Esconde la alerta "success" cuando se ejecuta el setTimeout (3,5 segundos)
+function alertOff(){
+    document.getElementById("soldSuccess").hidden = true;
+}
+
 //Función para validación de los campos
 (function () {
     var forms = document.querySelectorAll('.needs-validation');
@@ -126,6 +131,11 @@ calculateCosts();
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
+                } else {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    document.getElementById("soldSuccess").hidden = false;
+                    setTimeout(alertOff, 3500);
                 }
                 form.classList.add('was-validated')
             }, false)
