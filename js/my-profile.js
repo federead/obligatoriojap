@@ -18,6 +18,20 @@ if (!localStorage.getItem("userProfile")) {
     profilePhone.value = userData.phone;
 }
 
+// Guarda en el Local Storage los datos ingresados por el usuario
+function saveUserData (){
+    let userData = {
+        name : profileName.value,
+        name2 : profileName2.value,
+        lastname : profileLastname.value,
+        lastname2 : profileLastname2.value,
+        email: profileMail.value,
+        phone: profilePhone.value                        
+    };
+    localStorage.setItem("userProfile", JSON.stringify(userData));
+    localStorage.setItem("userName", profileMail.value);
+}
+
 // Esconde la alerta "success" cuando se ejecuta el setTimeout (3,5 segundos)
 function alertOff(){
     document.getElementById("successUser").hidden = true;
@@ -36,19 +50,9 @@ function alertOff(){
                     event.preventDefault()
                     event.stopPropagation()
                 } else {
-                    let userData = {
-                        name : profileName.value,
-                        name2 : profileName2.value,
-                        lastname : profileLastname.value,
-                        lastname2 : profileLastname2.value,
-                        email: profileMail.value,
-                        phone: profilePhone.value                        
-                    };
-                    localStorage.setItem("userProfile", JSON.stringify(userData));
-                    localStorage.setItem("userName", profileMail.value);
+                    saveUserData();
                     event.stopPropagation();
-                    event.preventDefault();
-                    console.log("se guardo todooo");
+                    event.preventDefault();                    
                     document.getElementById("successUser").hidden = false;
                     setTimeout(alertOff, 3500);
                 }
