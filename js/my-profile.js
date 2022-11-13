@@ -21,6 +21,7 @@ if (!localStorage.getItem("userProfile")) {
 // Esconde la alerta "success" cuando se ejecuta el setTimeout (3,5 segundos)
 function alertOff(){
     document.getElementById("successUser").hidden = true;
+    location.reload();
 }
 
 // Función de Bootstrap que chequea los campos obligatorios y si esta todo OK los guarda en el Local Storage
@@ -43,7 +44,8 @@ function alertOff(){
                         email: profileMail.value,
                         phone: profilePhone.value                        
                     };
-                    localStorage.setItem("userProfile",JSON.stringify(userData));
+                    localStorage.setItem("userProfile", JSON.stringify(userData));
+                    localStorage.setItem("userName", profileMail.value);
                     event.stopPropagation();
                     event.preventDefault();
                     console.log("se guardo todooo");

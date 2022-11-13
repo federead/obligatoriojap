@@ -56,15 +56,19 @@
           <div class="col-md-8 order-md-1">
             <h5>Articulos a comprar</h5>
             <div>
-              <table id="cartProductsInfo">
-                <tr class="tableHeader" align="center">
-                  <th></th>
-                  <th>Nombre</th>
-                  <th>Costo</th>
-                  <th>Cantidad</th>
-                  <th>Subtotal</th>
-                  <th></th>
-                </tr>
+              <table>
+                <thead>
+                  <tr class="tableHeader" align="center">
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Costo</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="cartProductsInfo">
+                </tbody>
               </table>
               <hr class="solidLine">
             </div>
@@ -185,7 +189,8 @@
                       <input id="transferPay" name="wayToPay" type="radio" class="form-check-input" required="">
                       <label class="custom-control-label" for="transferPay">Transferencia bancaria</label><br>
                       <label for="accountNumber" class="mt-2">Número de cuenta</label>
-                      <input type="text" name="accountNumber" id="accountNumber" class="form-control" placeholder="" required="">
+                      <input type="text" name="accountNumber" id="accountNumber" class="form-control" placeholder=""
+                        required="">
                       <div class="invalid-feedback w-auto">
                         Ingrese un número de cuenta
                       </div>

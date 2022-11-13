@@ -9,9 +9,10 @@ const creditCardPay = document.getElementById("creditCardPay");
 const transferPay = document.getElementById("transferPay");
 const msgPayForm = document.getElementById("msgPayForm");
 
+let cartInfo = JSON.parse(localStorage.getItem("productCart"));
+
 // Función que comprueba la cantidad de articulos y devuelve el subtotal
-function precio(unidad, i) {
-    let cartInfo = JSON.parse(localStorage.getItem("productCart"));
+function precio(unidad, i) {    
     let moneda = cartInfo[i].currency;
     let unitCost = cartInfo[i].unitCost;
 
@@ -26,13 +27,13 @@ function precio(unidad, i) {
 }
 
 // Carga y muestra los datos desde el Local Storage
-function loadCartContent() {
-    let cartInfo = JSON.parse(localStorage.getItem("productCart"));
+function loadCartContent() {    
     let htmlContentToAppend = "";
+    cartTable.innerHTML = "";
     for (let i = 0; i < cartInfo.length; i++) {
-        let cart = cartInfo[i];
+        let cart = cartInfo[i];        
         htmlContentToAppend = `
-        <tr class="bordeBottom" align="center">
+        <tr id="row${i}" class="bordeBottom" align="center">
             <td><img src="${cart.image}" class="tdSize" alt="${cart.name}"></td>
             <td>${cart.name}</td>
             <td>${cart.currency} ${cart.unitCost}</td>
@@ -43,11 +44,21 @@ function loadCartContent() {
                 </div>
             </td>
             <td> USD <span id="subtotal${i}"></span></td>
-            <td></td>
+            <td><button onclick="deleteProduct(${i})" type="button" class="fas fa-trash-alt" style="color:red; border:none;"></button></td>
         </tr>`
         cartTable.innerHTML += htmlContentToAppend;
         precio(1, i);
     }
+}
+
+// Elimina producto del carrito
+function deleteProduct(i) {    
+    cartInfo.splice(i, 1);
+    console.log(cartInfo);
+    document.getElementById("row"+i).remove();
+    localStorage.setItem("productCart", JSON.stringify(cartInfo));
+    loadCartContent();
+    calculateCosts();
 }
 
 // Modal "Forma de Pago"
@@ -85,7 +96,6 @@ function payFromSelected() {
 function calculateCosts() {
 
     //Suma de todos los productos
-    let cartInfo = JSON.parse(localStorage.getItem("productCart"));
     let sumaProducts = 0;
     for (let i = 0; i < cartInfo.length; i++) {
         let subtotalProd = parseFloat(document.getElementById("subtotal" + i).textContent);
