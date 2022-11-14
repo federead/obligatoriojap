@@ -47,6 +47,7 @@ let userName = document.getElementById("userName").innerHTML = localStorage.getI
 
 btnLogOut.addEventListener("click", () => {
   localStorage.removeItem("userName");
+  localStorage.removeItem("userProfile");
   window.location="login.html";
 });
 

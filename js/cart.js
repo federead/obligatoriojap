@@ -51,12 +51,11 @@ function loadCartContent() {
     }
 }
 
-// Elimina producto del carrito
+// Elimina el producto del carrito
 function deleteProduct(i) {    
-    cartInfo.splice(i, 1);
-    console.log(cartInfo);
-    document.getElementById("row"+i).remove();
+    cartInfo.splice(i, 1);        
     localStorage.setItem("productCart", JSON.stringify(cartInfo));
+    document.getElementById("row"+i).remove();
     loadCartContent();
     calculateCosts();
 }
